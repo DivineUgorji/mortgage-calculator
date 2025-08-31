@@ -1,0 +1,92 @@
+:root {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+    --font-family: "font-jakarta";
+  }
+
+  @media (min-width: 900px) {
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 8. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+}
+
+@font-face {
+  font-family: "jakarta";
+  src: url("src/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-jakarta: "jakarta", sans;
+  --color-primary-lime: hsl(61, 70%, 52%);
+  --color-primary-red: hsl(4, 69%, 50%);
+
+  --color-neutral-white: hsl(0, 0%, 100%);
+  --color-slate-100: hsl(202, 86%, 94%);
+  --color-slate-300: hsl(203, 41%, 72%);
+  --color-slate-500: hsl(200, 26%, 54%);
+  --color-slate-700: hsl(200, 24%, 40%);
+  --color-slate-900: hsl(202, 55%, 16%);
+  --color-accent-dark: #000000;
+}
