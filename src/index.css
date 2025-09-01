@@ -1,4 +1,4 @@
-:root {
+/* :root {
   *,
   *::before,
   *::after {
@@ -46,7 +46,7 @@
     font: inherit;
   }
 
-  /* 8. Avoid text overflows */
+
   p,
   h1,
   h2,
@@ -68,7 +68,24 @@
   h6 {
     text-wrap: balance;
   }
-}
+} */
+
+/* :root {
+  body {
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+    --font-family: "font-jakarta";
+  }
+
+  @media (min-width: 900px) {
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+  }
+} */
 
 @font-face {
   font-family: "jakarta";

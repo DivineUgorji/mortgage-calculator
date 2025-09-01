@@ -10,8 +10,7 @@ const ResultCard = ({ children, className }) => {
         again.
       </p>
 
-      <div className="max-w-md mx-auto bg-slate-950 text-white p-6 rounded-lg shadow-lg border-t-4 border-primary-lime">
-        {/* Monthly repayment */}
+      <div className=" mx-auto bg-slate-950 text-white p-6 rounded-lg shadow-lg border-t-4 border-primary-lime">
         <div className="mb-6">
           <p className="text-slate-300 text-lg pb-2">Your monthly repayments</p>
           <p className="text-4xl font-bold text-primary-lime pb-8">£1,797.74</p>
@@ -19,7 +18,6 @@ const ResultCard = ({ children, className }) => {
 
         <hr className="border-slate-700 pb-8" />
 
-        {/* Total repayment */}
         <div>
           <p className="text-slate-300 text-lg">
             Total you'll repay over the term

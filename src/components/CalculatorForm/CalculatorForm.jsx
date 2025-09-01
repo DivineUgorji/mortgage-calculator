@@ -18,14 +18,18 @@ const CalculatorForm = () => {
 
   const [mortgageType, setMortgageType] = useState("repayment");
   return (
-    <div className="bg-neutral-white p-[2.5rem]">
-      <div className="flex justify-between items-center pb-[2.5rem]">
-        <h1 className="font-bold text-2xl text-slate-900">
+    <div className="grid">
+      <div
+        className="flex 
+      justify-between items-center pb-[2.5rem]  max-[380px]:flex-col max-[380px]:items-start max-[380px]:gap-2"
+      >
+        <h1 className="font-medium text-lg md:text-2xl   text-slate-900">
           Mortgage Calculator
         </h1>
+
         <Button
           className="bg-transparent text-slate-700 border-0 underline decoration-dotted decoration-1 
-        underline-offset-4 decoration-slate-700"
+        underline-offset-4 decoration-slate-700 px-0 py-0"
         >
           clear all
         </Button>
@@ -35,6 +39,7 @@ const CalculatorForm = () => {
           event.preventDefault();
 
           handleMortgageCalcultion;
+          console.log("form was submitted");
         }}
       >
         <InputField
@@ -97,10 +102,23 @@ const CalculatorForm = () => {
               }}
             />
           </div>
+
+          <div className="w-full  pt-[2.5rem]">
+            <Button
+              icon={Calculator}
+              className="block font-medium sm:font-semibold 
+            px-[1.5rem] py-4 md:px-[2rem] sm:py-4
+            justify-self-center min-[380px]:justify-self-start"
+              type="submit"
+            >
+              <span className="block max-[340px]:hidden">
+                Calculate Repayments
+              </span>
+              <span className="hidden max-[340px]:block">Calculate</span>
+            </Button>
+          </div>
         </fieldset>
       </form>
-
-      <Button icon={Calculator}>Calculate Repayments</Button>
     </div>
   );
 };
