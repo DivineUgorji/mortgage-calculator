@@ -5,7 +5,7 @@ const RadioButton = ({ id, label, ...props }) => {
     <label
       htmlFor={id}
       className={`
-        flex items-center gap-3 cursor-pointer rounded-md border p-4 transition
+        flex items-center gap-5 cursor-pointer rounded-md border py-3 px-4 transition
         ${
           props.checked
             ? "bg-primary-lime/15 border-primary-lime"
@@ -18,9 +18,9 @@ const RadioButton = ({ id, label, ...props }) => {
         id={id}
         {...props}
         className="
-          appearance-none w-3 h-3 rounded-full border-2 border-slate-300
+          appearance-none w-5 h-5 rounded-full border-2 border-slate-300
           checked:border-primary-lime checked:bg-primary-lime/15
-          focus:outline-none"
+          focus:outline-none tracking-widest"
       />
       <span className="font-semibold text-slate-950">{label}</span>
     </label>
