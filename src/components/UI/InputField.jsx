@@ -16,7 +16,7 @@ const InputField = ({
           {label}
         </label>
       )}
-      <div className="flex gap-2 items-center rounded-md shadow-sm border border-slate-300  focus-within:border-primary-lime overflow-hidden group">
+      <div className="flex gap-2 items-center rounded-md shadow-sm border border-slate-300  focus-within:border-primary-lime focus-within:bg-neutral-white overflow-hidden group">
         {prefix && (
           <span
             className={`inline-flex text-slate-600  font-semibold text-lg self-stretch px-3 py-3 ${prefixBg} group-focus-within:bg-primary-lime`}

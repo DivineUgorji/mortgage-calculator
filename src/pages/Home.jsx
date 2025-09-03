@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../components/UI/Card";
 import CalculatorForm from "../components/CalculatorForm";
 import ResultCard from "../components/ResultCard";
+import { calcMortgage } from "../../utils/calcMortgage";
 
 const Home = () => {
+  const [mortgageCalcResult, setMortgageCalcResult] = useState(null);
+
+  function handleMortgageCalc(formData) {
+    // const { amount, rate, term, type } = data;
+    // const calc = calcMortgage(Number(amount), Number(rate), Number(term), type);
+    // setMortgageCalcResult(calc);
+
+    const result = calcMortgage(formData);
+    setMortgageCalcResult(result);
+  }
+
   return (
     <div
       className="flex mx-auto p-6
@@ -18,7 +30,7 @@ const Home = () => {
           lg:p-[2.5rem] min-[688px]:rounded-t-2xl min-[688px]:rounded-b-2xl 
           max-[768px]:rounded-t-2xl lg:max-w-[31.5rem] overflow-hidden"
         >
-          <CalculatorForm />
+          <CalculatorForm onCalculateMortgage={handleMortgageCalc} />
         </Card>
 
         <Card
@@ -26,7 +38,7 @@ const Home = () => {
     sm:rounded-b-xs lg:rounded-r-xs 
     lg:rounded-bl-[5.1rem] px-6 py-6 md:p-[2.5rem]"
         >
-          <ResultCard />
+          <ResultCard mortgageCalcResult={mortgageCalcResult} />
         </Card>
       </div>
     </div>

@@ -2,21 +2,24 @@ import React, { useState } from "react";
 import InputField from "../UI/InputField";
 import RadioButton from "../UI/RadioButton";
 import Button from "../UI/Button";
-// import { ReactComponent as CalculatorIcon } from "../../assets/images/calculator.svg";
+
 import { Calculator } from "lucide-react";
 
-function handleMortgageCalcultion() {
-  //TODO
-}
-
-const CalculatorForm = () => {
+const CalculatorForm = ({ onCalculateMortgage }) => {
   const [formData, setFormData] = useState({
-    amount: 500000,
-    interest: 2.5,
-    term: 10,
+    amount: "",
+    interest: "",
+    term: "",
+    mortgageType: "repayment",
   });
 
-  const [mortgageType, setMortgageType] = useState("repayment");
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    onCalculateMortgage(formData);
+    console.log("form was submitted");
+  }
+
   return (
     <div className="grid ">
       <div
@@ -34,24 +37,20 @@ const CalculatorForm = () => {
           clear all
         </Button>
       </div>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-
-          handleMortgageCalcultion;
-          console.log("form was submitted");
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <div className="pb-5">
           <InputField
-            required={true}
             label="Mortgage Amount"
             id="amount-input"
             type="number"
             prefix="￡"
             value={formData.amount}
+            autoComplete="off"
             onChange={(event) => {
-              setFormData({ ...formData, amount: event.target.value });
+              const value = event.target.value;
+              if (value <= 100000000000) {
+                setFormData({ ...formData, amount: event.target.value });
+              }
             }}
           />
         </div>
@@ -89,18 +88,18 @@ const CalculatorForm = () => {
               id="repayment"
               label="Repayment"
               value="repayment"
-              checked={mortgageType === "repayment"}
+              checked={formData.mortgageType === "repayment"}
               onChange={(event) => {
-                setMortgageType(event.target.value);
+                setFormData({ ...formData, mortgageType: event.target.value });
               }}
             />
             <RadioButton
               id="interest-only"
               label="Interest Only"
-              value="interest only"
-              checked={mortgageType === "interest only"}
+              value="interest-only"
+              checked={formData.mortgageType === "interest-only"}
               onChange={(event) => {
-                setMortgageType(event.target.value);
+                setFormData({ ...formData, mortgageType: event.target.value });
               }}
             />
           </div>
@@ -109,7 +108,8 @@ const CalculatorForm = () => {
             <Button
               icon={Calculator}
               className="block px-6 py-4 md:px-11
-            justify-self-center min-[380px]:justify-self-start"
+            justify-self-center min-[380px]:justify-self-start 
+            hover:bg-lime-hover transition-all duration-300 ease-out"
               type="submit"
             >
               <span className="block font-bold tracking-tight max-[370px]:hidden text-[1.1rem]">
