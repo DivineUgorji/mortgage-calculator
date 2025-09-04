@@ -10,14 +10,45 @@ const CalculatorForm = ({ onCalculateMortgage }) => {
     amount: "",
     interest: "",
     term: "",
-    mortgageType: "repayment",
+    mortgageType: "",
   });
+
+  const [errors, setErrors] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
 
+    const newErrors = {};
+
+    if (!formData.amount) {
+      newErrors.amount = "This field is required";
+    }
+    if (!formData.term) {
+      newErrors.term = "This field is required";
+    }
+    if (!formData.interest) {
+      newErrors.interest = "This field is required";
+    }
+
+    setErrors(newErrors);
+
     onCalculateMortgage(formData);
+    // if (Object.keys(newErrors).length === 0) {
+
+    // }
+
     console.log("form was submitted");
+  }
+
+  function handleClear() {
+    setFormData({
+      amount: "",
+      interest: "",
+      term: "",
+      mortgageType: "repayment",
+    });
+    setErrors({});
+    console.log("onclear function is called");
   }
 
   return (
@@ -33,6 +64,7 @@ const CalculatorForm = ({ onCalculateMortgage }) => {
         <Button
           className="bg-transparent text-lg text-slate-700 border-0 underline decoration-dotted decoration-1 
         underline-offset-4 decoration-slate-700 px-0 py-0"
+          onClick={handleClear}
         >
           clear all
         </Button>
@@ -46,6 +78,7 @@ const CalculatorForm = ({ onCalculateMortgage }) => {
             prefix="￡"
             value={formData.amount}
             autoComplete="off"
+            error={errors.amount}
             onChange={(event) => {
               const value = event.target.value;
               if (value <= 100000000000) {
@@ -58,10 +91,10 @@ const CalculatorForm = ({ onCalculateMortgage }) => {
           <InputField
             label="Mortgage Term"
             id="term-input"
-            required={true}
             type="number"
             value={formData.term}
             suffix="years"
+            error={errors.term}
             className="py-4"
             onChange={(event) => {
               setFormData({ ...formData, term: event.target.value });
@@ -71,10 +104,11 @@ const CalculatorForm = ({ onCalculateMortgage }) => {
           <InputField
             label="Interest Rate"
             id="interest-field"
-            required={true}
+            // required={true}
             type="number"
             value={formData.interest}
             suffix="%"
+            error={errors.interest}
             onChange={(event) => {
               setFormData({ ...formData, interest: event.target.value });
             }}

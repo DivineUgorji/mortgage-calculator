@@ -1,12 +1,88 @@
-# React + Vite
+# Frontend Mentor - Mortgage repayment calculator solution 🧮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![](./src//assets/design/desktop-design-completed.jpg)
 
-Currently, two official plugins are available:
+A simple mortgage calculator built with **React**.  
+I created this project to practice core React concepts such as:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Controlled inputs
+- Form validation in React
+- Conditional rendering
+- Thinking in components
+- Reusability
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- Enter loan amount, interest rate, and loan term to calculate monthly payments.
+- Validates inputs (e.g., empty or invalid values).
+- Displays clear error messages when inputs are incorrect.
+- Renders different states:
+  - **Empty state** → before calculation.
+  - **Result state** → shows calculation results.
+- Built with reusable, composable components.
+- Responsive design styled with Tailwind CSS (matches the Figma design).
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** (functional components + hooks)
+- **Tailwind CSS** for styling
+- **Vite** for fast development build
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+├── components/
+│ ├── UI/ => Reusable UI components (Card, Button, InputField)
+│ ├── CalculatorForm.jsx
+│ ├── ResultCard.jsx
+├── pages/
+│ └── Home.jsx
+├── utils/
+│ └── calcMortgage.js
+└── App.jsx
+```
+
+---
+
+## 🎯 What I Learned
+
+Through this project, I strengthened my understanding of:
+
+- Managing form state with **controlled components**.
+- Implementing **inline validation** and error messages.
+- Using **conditional rendering** to manage multiple UI states.
+- Structuring apps by **breaking UI into small, reusable components**.
+- Designing responsive layouts with Tailwind CSS.
+
+---
+
+## 💻 Getting Started
+
+Clone the repo and run locally:
+
+```bash
+# Clone repository
+git clone https://github.com/your-username/mortgage-calculator.git
+
+# Navigate into project
+cd mortgage-calculator
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
+### 📝 License
+
+This project is open source and available under the MIT License.
+
+---

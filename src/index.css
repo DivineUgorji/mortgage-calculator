@@ -5,6 +5,12 @@
 
 @import "tailwindcss";
 
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
 @theme {
   --font-jakarta: "jakarta", sans;
   --color-primary-lime: hsl(61, 70%, 52%);

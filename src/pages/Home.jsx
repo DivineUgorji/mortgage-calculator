@@ -8,19 +8,12 @@ const Home = () => {
   const [mortgageCalcResult, setMortgageCalcResult] = useState(null);
 
   function handleMortgageCalc(formData) {
-    // const { amount, rate, term, type } = data;
-    // const calc = calcMortgage(Number(amount), Number(rate), Number(term), type);
-    // setMortgageCalcResult(calc);
-
     const result = calcMortgage(formData);
     setMortgageCalcResult(result);
   }
 
   return (
-    <div
-      className="flex mx-auto p-6
-      justify-center font-jakarta"
-    >
+    <div className="mx-auto w-full h-full font-jakarta">
       <div
         className="flex flex-col bg-neutral-white
       min-[688px]:flex-row sm:rounded-3xl shadow-2xl overflow-hidden"
