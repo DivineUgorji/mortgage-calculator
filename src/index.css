@@ -9,7 +9,8 @@ body {
 }
 
 @theme {
-  --font-jakarta: "jakarta", sans;
+  /* --font-jakarta: "jakarta", sans; */
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
 
   --color-primary-lime: hsl(61, 70%, 52%);
   --color-lime-hover: #e3e56d;
